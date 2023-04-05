@@ -40,7 +40,7 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
       </section>
 
       <ul className="elements">
-        {cards.map(card => <Card key={card.id} card={card} onCardClick={onCardClick} />)}
+        {cards.map(card => <Card key={card._id} card={card} onCardClick={onCardClick} />)}
       </ul>
 
     </main>
