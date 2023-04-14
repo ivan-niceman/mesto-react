@@ -41,7 +41,7 @@ export default class Api {
     .then(this._getJson);
   }
 
-  createNewProfile(data) {
+  setUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._getHeaders(),
@@ -53,7 +53,7 @@ export default class Api {
     .then(this._getJson);
   }
 
-  createNewAvatar(data) {
+  setUserAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._getHeaders(),
@@ -86,6 +86,10 @@ export default class Api {
       headers: this._getHeaders()
     })
     .then(this._getJson);
+  }
+
+  changeLikeCardStatus(id, isLiked) {
+    return !isLiked ? this.deleteLike(id) : this.putLike(id)
   }
 }
 
