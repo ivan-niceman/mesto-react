@@ -1,13 +1,18 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import React from "react";
+import PopupWithForm from "./PopupWithForm";
 
-export default function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }) {
-  const [name, setName] = React.useState('');
-  const [link, setLink] = React.useState('');
+export default function AddPlacePopup({
+  isOpen,
+  onClose,
+  onAddPlace,
+  isLoading,
+}) {
+  const [name, setName] = React.useState("");
+  const [link, setLink] = React.useState("");
 
   React.useEffect(() => {
-    setName('');
-    setLink('');
+    setName("");
+    setLink("");
   }, []);
 
   function handleSubmit(e) {
@@ -29,22 +34,40 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace, isLoading }
 
   return (
     <PopupWithForm
-      name={'new-card'}
-      title={'Новое место'}
+      name={"new-card"}
+      title={"Новое место"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      buttonText={isLoading ? 'Сохранение...' : 'Сохранить'}
-    >
-
+      buttonText={isLoading ? "Сохранение..." : "Сохранить"}>
       <label className="popup__form-lable">
-        <input type="text" name="name" placeholder="Название" className="popup__input popup__input_type_name popup__input_type_name-card" id="name-image-input" required minLength="2" maxLength="30" onChange={handleNameChange} value={name} />
+        <input
+          type="text"
+          name="name"
+          placeholder="Название"
+          className="popup__input popup__input_type_name popup__input_type_name-card"
+          id="name-image-input"
+          required
+          minLength="2"
+          maxLength="30"
+          onChange={handleNameChange}
+          value={name}
+        />
         <span className="popup__input-error name-image-input-error"></span>
       </label>
       <label className="popup__form-lable">
-        <input type="url" name="link" placeholder="Ссылка на картинку" className="popup__input popup__input_type_speciality popup__input_type_link" id="image-link-input" required onChange={handleLinkChange} value={link} />
+        <input
+          type="url"
+          name="link"
+          placeholder="Ссылка на картинку"
+          className="popup__input popup__input_type_speciality popup__input_type_link"
+          id="image-link-input"
+          required
+          onChange={handleLinkChange}
+          value={link}
+        />
         <span className="popup__input-error image-link-input-error"></span>
       </label>
     </PopupWithForm>
-  )
+  );
 }
